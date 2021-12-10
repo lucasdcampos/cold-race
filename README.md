@@ -1,6 +1,6 @@
 # Cold Race Game
 
-Cold Race is a platform game in pixel art, being developed in Unity (C#) and will be published in Steam in the future.
+Cold Race is a platform game in pixel art, being developed in Unity (C#) and will be published on Steam in the future.
 
 
 The game is still in the early stages of development, however some mechanics are already working.

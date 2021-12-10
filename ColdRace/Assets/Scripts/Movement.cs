@@ -52,6 +52,7 @@ public class Movement : MonoBehaviour
     public ParticleSystem dashFX;
     public ParticleSystem slidingFX;
     public ParticleSystem walkFX;
+    public ParticleSystem deathFX;
 
 
     [Space]
@@ -177,7 +178,7 @@ public class Movement : MonoBehaviour
         if(Input.GetKeyDown("q") && canDash && !PauseMenu.isPaused){
             
             
-            CreateDust();
+            dashFX.Play();
             ShakeCamera();
             SoundManager.PlaySound("dashSFX");
             canDash = false;
@@ -218,9 +219,7 @@ public class Movement : MonoBehaviour
 
 
 
-    void CreateDust(){
-        dashFX.Play();
-    }
+
 
 
 
@@ -251,8 +250,13 @@ public class Movement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col){
         
         if(col.gameObject.tag == "Lava"){
+            deathFX.Play();
             transform.position = respawnPoint;
             SoundManager.PlaySound("deathSFX");
+            ShakeCamera();
+            
+
+
         }else if(col.gameObject.tag == "Checkpoint"){
             respawnPoint = transform.position;
         }

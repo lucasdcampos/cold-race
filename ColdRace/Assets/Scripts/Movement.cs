@@ -7,8 +7,7 @@ public class Movement : MonoBehaviour
     // Components and Variables:
     [HideInInspector]
     public Rigidbody2D rb;
-    public AnimationController anim;
-    public Vector3 respawnPoint;
+    public Player player;
 
     [Header("Stats:")]
     public float speed;
@@ -19,8 +18,9 @@ public class Movement : MonoBehaviour
     public float slidingSpeed;
     public float climbSpeed;
     public int jumps = 1;
-    public float currentStamina;
-    public float maxStamina;
+    public float fallSpeed;
+    public float lowJumpForce;
+    public float gravityScale;
 
     [Space]
     [Header("Ground Check:")]
@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
     public bool wallSliding;
     public float wallCheckRadius;
     public Transform rightCheck;
-    public bool isTouchingRight;
+    public bool isOnWall;
     public bool wallJumping;
     public bool wallClimbing;
     public float xWall;
@@ -62,14 +62,13 @@ public class Movement : MonoBehaviour
     public bool dashUp;
     public bool dashDiag;
     public bool canMove;
-
+    public bool isJumping;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<AnimationController>();
-        respawnPoint = transform.position;
+        rb.gravityScale = gravityScale;
     }
     
 
@@ -109,8 +108,19 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
             isGrounded = false;
             jumps--;
+            isJumping = true;
             slidingFX.Play();
+        
         }
+
+        if(rb.velocity.y < 0 ){
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallSpeed - 1) * Time.deltaTime;
+        }else if(rb.velocity.y > 0 && !Input.GetKey("space") && isJumping){
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpForce - 1) * Time.deltaTime;
+
+        }
+
+        
 
          //Creates a Circle on Player's feet that will check for collisions with the ground
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, ground);
@@ -120,28 +130,24 @@ public class Movement : MonoBehaviour
     //Wall Slide/Jump
     void WallSlide(float x, float y){
 
-        isTouchingRight = Physics2D.OverlapCircle(rightCheck.position, wallCheckRadius, ground);
-
-        if(currentStamina > maxStamina){
-            currentStamina = maxStamina;
-            
-        }
+        isOnWall = Physics2D.OverlapCircle(rightCheck.position, wallCheckRadius, ground);
 
         // Wall Climbing
-        if(isTouchingRight && Input.GetKey("e") && currentStamina > 0){
+        if(isOnWall && Input.GetKey("e")){
             rb.velocity = new Vector2(rb.velocity.x, climbSpeed * y);
-            rb.gravityScale = 0;
             wallClimbing = true;
-            currentStamina -= Time.deltaTime;
             slidingFX.Play();
+            rb.gravityScale = 0;
         }else{
             wallClimbing = false;
-            rb.gravityScale = 3;
-            currentStamina += Time.deltaTime;
+            rb.gravityScale = gravityScale;
         }
-        if(isTouchingRight && !isGrounded && rb.velocity.x != 0 && !PauseMenu.isPaused){
+        if(isOnWall && !isGrounded && rb.velocity.x != 0 && !PauseMenu.isPaused){
             wallSliding = true;
             slidingFX.Play();
+
+
+
 
             //Wall Jumping
             if(Input.GetKeyDown("space") && !wallJumping && !PauseMenu.isPaused){
@@ -172,11 +178,11 @@ public class Movement : MonoBehaviour
         wallJumping = false;
     }
 
+
     // Dashing
     void Dash(float x, float y){
 
         if(Input.GetKeyDown("q") && canDash && !PauseMenu.isPaused){
-            
             
             dashFX.Play();
             ShakeCamera();
@@ -218,11 +224,6 @@ public class Movement : MonoBehaviour
 
 
 
-
-
-
-
-
     // CAMERA SHAKING
 
 	public void ShakeCamera()
@@ -247,20 +248,6 @@ public class Movement : MonoBehaviour
 	}
     
 
-    void OnTriggerEnter2D(Collider2D col){
-        
-        if(col.gameObject.tag == "Lava"){
-            deathFX.Play();
-            transform.position = respawnPoint;
-            SoundManager.PlaySound("deathSFX");
-            ShakeCamera();
-            
-
-
-        }else if(col.gameObject.tag == "Checkpoint"){
-            respawnPoint = transform.position;
-        }
-
-    }
+    
 
 }

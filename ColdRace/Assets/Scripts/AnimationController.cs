@@ -7,13 +7,12 @@ public class AnimationController : MonoBehaviour
 
 
     public Animator anim;
-    public Movement move;
-    public SpriteRenderer sprite;
+    public Player player;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        move = GetComponent<Movement>();
         anim = GetComponent<Animator>();
 
 
@@ -23,10 +22,10 @@ public class AnimationController : MonoBehaviour
     void Update()
     {
         
-        anim.SetBool("isSliding", move.wallSliding || move.wallClimbing);
-        anim.SetBool("isJumping", !move.isGrounded && !move.wallSliding && !move.wallClimbing);
+        anim.SetBool("isSliding", player.move.wallSliding || player.move.wallClimbing);
+        anim.SetBool("isJumping", !player.move.isGrounded && !player.move.wallSliding && !player.move.wallClimbing);
 
-        if(move.isGrounded && !move.wallClimbing && move.rb.velocity.x != 0){
+        if(player.move.isGrounded && !player.move.wallClimbing && player.move.rb.velocity.x != 0){
             anim.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
         }
 

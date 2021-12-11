@@ -979,7 +979,6 @@ GameObject:
   - component: {fileID: 848346440}
   - component: {fileID: 848346439}
   - component: {fileID: 848346438}
-  - component: {fileID: 848346441}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -1051,9 +1050,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 848346441}
-        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
-        m_MethodName: ChangeS
+      - m_Target: {fileID: 1105895952}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Scene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1101,19 +1100,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848346436}
   m_CullTransparentMesh: 1
---- !u!114 &848346441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848346436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d092c6f1a752ff4abe6a2ed3fb71224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: lvl1
 --- !u!1 &887924407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,6 +1363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1105895948}
+  scene: lvl1
 --- !u!1 &1169386523
 GameObject:
   m_ObjectHideFlags: 0

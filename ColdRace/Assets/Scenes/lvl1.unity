@@ -11848,7 +11848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888846460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.22900009, y: -0.20300007, z: 0}
+  m_LocalPosition: {x: -0.22900009, y: -0.168, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 535560575}
@@ -52106,7 +52106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759343470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.024999619, y: -0.3829999, z: 0}
+  m_LocalPosition: {x: -0.093, y: -0.431, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 535560575}
@@ -52491,6 +52491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 847727909}
+  scene: 
 --- !u!4 &2030485303
 Transform:
   m_ObjectHideFlags: 0
@@ -57444,7 +57445,7 @@ MonoBehaviour:
   rb: {fileID: 322207631689789388}
   player: {fileID: 0}
   speed: 8
-  jumpForce: 10
+  jumpForce: 10.5
   dashSpeed: 30
   dashTime: 1
   dashJump: 15

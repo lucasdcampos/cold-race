@@ -1,69 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
+using System;
 
 public class SoundManager : MonoBehaviour
 {
-    static AudioSource audio;
 
+    public Sound[] sounds;
+    public static SoundManager instance;
 
-    // Musics:
-    public static AudioClip pianoMood5;
-    public static AudioClip MainTheme;
-    public static AudioClip snowfallFinal;
+    void Awake(){
 
-    // Sound Effects:
-    public static AudioClip dashSFX;
-    public static AudioClip deathSFX;
+        if(instance == null){
+            instance = this;
+        }else{
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
 
-    void Start(){
-
-        audio = GetComponent<AudioSource>();
-
-        // Musics:
-        MainTheme = Resources.Load<AudioClip>("MainTheme");
-        pianoMood5 = Resources.Load<AudioClip>("pianoMood5");
-        pianoMood5 = Resources.Load<AudioClip>("snowfallFinal");
-
-
-        // Sound Effects:
-        dashSFX = Resources.Load<AudioClip>("dashSFX");
-        deathSFX = Resources.Load<AudioClip>("deathSFX");
-
-
-    }
-
-
-    public static void PlaySound(string clip){
-
-        switch(clip){
-            //Musics:
-            case "MainTheme":
-            audio.PlayOneShot(MainTheme);
-            break;
-
-            case "pianoMood5":
-            audio.PlayOneShot(pianoMood5);
-            break;
-            
-            case "snowfallFinal":
-            audio.PlayOneShot(snowfallFinal);
-            break;
-
-            //Sound Effects:
-            case "dashSFX":
-            audio.PlayOneShot(dashSFX);
-            break;
-
-            case "deathSFX":
-            audio.PlayOneShot(deathSFX);
-            break;
+        foreach(Sound s in sounds){
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
 
         }
+
     }
 
 
+    void Start(){
+        
+    }
 
+    
+    public void Play(string name){
 
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null){
+            Debug.LogWarning("Sound: " + name + " wasn't found =/");
+            return;
+        }
+        s.source.Play();
+    }
 
 }

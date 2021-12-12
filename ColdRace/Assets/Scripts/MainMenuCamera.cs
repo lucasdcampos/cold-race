@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainMenuCamera : MonoBehaviour
 {
+
     public Rigidbody2D rb;
     public float camSpeed;
     
@@ -11,4 +12,5 @@ public class MainMenuCamera : MonoBehaviour
     {
         rb.velocity = new Vector2(camSpeed, rb.velocity.y);
     }
+    
 }

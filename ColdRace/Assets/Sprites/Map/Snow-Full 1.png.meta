@@ -35,6 +35,24 @@ TextureImporter:
   - first:
       213: -7552825538446073825
     second: Snow-Full 1_10
+  - first:
+      213: -7647934778307293
+    second: Snow-Full 1_11
+  - first:
+      213: 5602366474549689047
+    second: Snow-Full 1_12
+  - first:
+      213: 4637153724682505294
+    second: Snow-Full 1_13
+  - first:
+      213: -3122500274201869301
+    second: Snow-Full 1_14
+  - first:
+      213: -2876369044328644762
+    second: Snow-Full 1_15
+  - first:
+      213: -3716367748977605247
+    second: Snow-Full 1_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -350,6 +368,132 @@ TextureImporter:
       bones: []
       spriteID: f106c6a7039fe2790800000000000000
       internalID: -7552825538446073825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow-Full 1_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 188
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d064c6e34d4eff0800000000000000
+      internalID: -7647934778307293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow-Full 1_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 188
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da771140aa9fbd40800000000000000
+      internalID: 5602366474549689047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow-Full 1_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 188
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c84907eba7a5040800000000000000
+      internalID: 4637153724682505294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow-Full 1_14
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 172
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0443295b86aaa4d0800000000000000
+      internalID: -3122500274201869301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow-Full 1_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 172
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66f7cd508951518d0800000000000000
+      internalID: -2876369044328644762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow-Full 1_16
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 172
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185c873f83fcc6cc0800000000000000
+      internalID: -3716367748977605247
       vertices: []
       indices: 
       edges: []

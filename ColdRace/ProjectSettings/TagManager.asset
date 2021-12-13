@@ -7,6 +7,7 @@ TagManager:
   - Lava
   - Checkpoint
   - Tutorial
+  - Cake
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Lava
   - Ground
   - Post Processing
-  - 
+  - Cake
   - 
   - 
   - 

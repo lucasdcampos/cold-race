@@ -62,10 +62,23 @@ public class Collision : MonoBehaviour
     }
 
 
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        player.tutorial.QuitTutorial();
+    }
+
     void OnCollisionEnter2D(Collision2D col){
         if(col.gameObject.layer == 10){
             player.move.isJumping = false;
             player.move.canDash = true;
         }
+
+
+
+
+
+        // MISSIONS:
+
+
     }
 }

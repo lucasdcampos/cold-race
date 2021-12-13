@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     public Collision coll;
     public AnimationController anim;
     public Tutorial tutorial;
+    public Dialogue dialogue;
+
+
+    public int cake;
 
     public Vector3 respawnPoint;
     // Start is called before the first frame update
@@ -22,4 +26,5 @@ public class Player : MonoBehaviour
     {
         
     }
+
 }

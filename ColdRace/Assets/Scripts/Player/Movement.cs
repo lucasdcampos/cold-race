@@ -43,9 +43,9 @@ public class Movement : MonoBehaviour
     
     [Space]
     [Header("Camera:")]
-	public float shakeMagnetude;
+    public float shakeMagnetude;
     public float shakeTime;
-	public Camera mainCamera;
+    public Camera mainCamera;
 
     [Space]
     [Header("Particles:")]

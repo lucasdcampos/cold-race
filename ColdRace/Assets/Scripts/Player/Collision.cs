@@ -71,6 +71,7 @@ public class Collision : MonoBehaviour
         if(col.gameObject.layer == 10){
             player.move.isJumping = false;
             player.move.canDash = true;
+            player.move.isDashing = false;
         }
 
 

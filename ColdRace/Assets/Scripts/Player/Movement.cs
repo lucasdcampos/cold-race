@@ -63,6 +63,7 @@ public class Movement : MonoBehaviour
     public bool dashDiag;
     public bool canMove;
     public bool isJumping;
+    public bool isDashing;
 
 
     void Start()
@@ -198,6 +199,7 @@ public class Movement : MonoBehaviour
             FindObjectOfType<SoundManager>().Play("dash");
             ShakeCamera();
             canDash = false;
+            isDashing = true;
             
             if(x == 0 && y == 0){
                 if(facingRight){
@@ -206,7 +208,15 @@ public class Movement : MonoBehaviour
                     rb.velocity = new Vector2(-dashSpeed, rb.velocity.y);
                 }
             }else{
-                rb.velocity = new Vector2(dashSpeed * x, dashJump * y);
+                if (!isJumping)
+                {
+                    rb.velocity = new Vector2(dashSpeed * x, dashJump * y);
+                }
+                else
+                {
+                    rb.velocity = new Vector2(dashSpeed * x, dashJump * y * 0.7f);
+                }
+                
             }
 
             

@@ -22,7 +22,7 @@ public class AnimationController : MonoBehaviour
     void Update()
     {
         
-        anim.SetBool("isSliding", player.move.wallSliding || player.move.wallClimbing);
+        anim.SetBool("isSliding", player.move.wallSliding || player.move.wallClimbing || player.move.isOnWall);
         anim.SetBool("isJumping", !player.move.isGrounded && !player.move.wallSliding && !player.move.wallClimbing);
 
         if(player.move.isGrounded && !player.move.wallClimbing && player.move.rb.velocity.x != 0){

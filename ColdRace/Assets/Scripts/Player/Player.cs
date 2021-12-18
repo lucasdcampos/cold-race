@@ -8,22 +8,14 @@ public class Player : MonoBehaviour
     public Movement move;
     public Collision coll;
     public AnimationController anim;
-    public Tutorial tutorial;
-    public Dialogue dialogue;
 
-
-    //Level Manager:
-    public bool tutorialJump;
-    public bool tutorialClimb;
-    public bool tutorialDash;
-
-
-
-
-    public int cake;
 
     public Vector3 respawnPoint;
-    // Start is called before the first frame update
+
+
+    //Player Inventory:
+    public int cake;
+
     void Start()
     {
         respawnPoint = transform.position;

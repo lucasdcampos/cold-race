@@ -79,8 +79,9 @@ public class Movement : MonoBehaviour
         Vector2 dir = new Vector2(x, y);
 
 
-        if(wallSliding || isGrounded){
+        if(isGrounded){
             canDash = true;
+            isJumping = false;
             jumps = 1;
         }
 
@@ -122,6 +123,7 @@ public class Movement : MonoBehaviour
 
     }
 
+
     //Wall Slide/Jump
     void WallSlide(float x, float y){
 
@@ -137,15 +139,18 @@ public class Movement : MonoBehaviour
             wallClimbing = false;
             rb.gravityScale = gravityScale;
         }
-        if (isOnWall && !isGrounded && rb.velocity.x != 0 && !PauseMenu.isPaused) {
+
+        //Wall Sliding
+        if (isOnWall && !isGrounded && x != 0 && !PauseMenu.isPaused && !wallClimbing) {
             wallSliding = true;
             slidingFX.Play();
-
+            rb.velocity = new Vector2(rb.velocity.x, -slidingSpeed);
+            
 
 
 
             //Wall Jumping
-            if(Input.GetButtonDown("Jump") && !wallJumping && !PauseMenu.isPaused){
+            if (Input.GetButtonDown("Jump") && !wallJumping && !PauseMenu.isPaused){
                 wallJumping = true;
                 Invoke("WallJumpingTime", wallJumpTime);
                 rb.velocity = new Vector2(xWall * -x, yWall);
@@ -162,7 +167,7 @@ public class Movement : MonoBehaviour
 
             }
 
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -slidingSpeed, float.MaxValue));
+            
 
         }else{
             wallSliding = false;
@@ -185,7 +190,7 @@ public class Movement : MonoBehaviour
             FindObjectOfType<SoundManager>().Play("dash");
             ShakeCamera();
             canDash = false;
-            isDashing = true;
+            
             
             if(x == 0 && y == 0){
                 if(facingRight){

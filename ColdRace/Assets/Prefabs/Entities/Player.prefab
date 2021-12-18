@@ -19421,7 +19421,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7881747192955238893, guid: e9620d4f518d23f48bf3eb19a9181367, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19514,8 +19514,8 @@ MonoBehaviour:
   move: {fileID: 1687816044482132231}
   coll: {fileID: 1687816044482132236}
   anim: {fileID: 1374976546761180595}
-  tutorial: {fileID: 0}
   respawnPoint: {x: 0, y: 0, z: 0}
+  cake: 0
 --- !u!114 &1687816044482132231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19530,16 +19530,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1687816044482132280}
   player: {fileID: 1687816044482132237}
-  speed: 8
+  speed: 10
   jumpForce: 10.5
-  dashSpeed: 30
+  dashSpeed: 20
   dashTime: 1
   dashJump: 15
-  slidingSpeed: 7
+  slidingSpeed: 4
   climbSpeed: 3
   jumps: 1
-  fallSpeed: 2.5
-  lowJumpForce: 2
   gravityScale: 3
   ground:
     serializedVersion: 2
@@ -19553,8 +19551,8 @@ MonoBehaviour:
   isOnWall: 0
   wallJumping: 0
   wallClimbing: 0
-  xWall: 35
-  yWall: 8
+  xWall: 36
+  yWall: 9
   wallJumpTime: 0.3
   shakeMagnetude: 0.04
   shakeTime: 0.35
@@ -19569,6 +19567,7 @@ MonoBehaviour:
   dashDiag: 0
   canMove: 1
   isJumping: 0
+  isDashing: 0
 --- !u!114 &1374976546761180595
 MonoBehaviour:
   m_ObjectHideFlags: 0

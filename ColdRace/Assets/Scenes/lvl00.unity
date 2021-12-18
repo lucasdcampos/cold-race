@@ -6962,20 +6962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e3331844655f348b1532a1f2509b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  jumpText: {fileID: 849494297}
-  dashText: {fileID: 2078323674}
-  slideText: {fileID: 836371563}
-  input: {fileID: 2030485305}
-  PS4_X: {fileID: 1436292416}
-  PS4_R1: {fileID: 975681780}
-  PS4_L2: {fileID: 1103372223}
-  KEYBOARD_SPACE: {fileID: 1391388830}
-  KEYBOARD_Q: {fileID: 2038603480}
-  KEYBOARD_E: {fileID: 86849383}
-  XBOX_LT: {fileID: 0}
-  XBOX_A: {fileID: 0}
-  XBOX_RB: {fileID: 0}
 --- !u!4 &832460709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2049030036956118880, guid: fe4857eaca410d045a93c815b3074409, type: 3}
@@ -32068,7 +32054,7 @@ Tilemap:
   - first: {x: -30, y: -4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
+      m_TileIndex: 18
       m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
@@ -32078,7 +32064,7 @@ Tilemap:
   - first: {x: -29, y: -4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
+      m_TileIndex: 18
       m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
@@ -32088,7 +32074,7 @@ Tilemap:
   - first: {x: -28, y: -4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
+      m_TileIndex: 18
       m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
@@ -35787,7 +35773,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7cbaae9f2c7b5744d92624924d3f3834, type: 2}
   - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: e059a2d61af63034baf1efd535880211, type: 2}
-  - m_RefCount: 137
+  - m_RefCount: 134
     m_Data: {fileID: 11400000, guid: 0ca39ba0cc68d2148939dce8bfc284a5, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -35803,8 +35789,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 3
+    m_Data: {fileID: 11400000, guid: bc7b802ae02c74049abd0c9724ece5c5, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
@@ -36015,6 +36001,18 @@ CompositeCollider2D:
       - X: -80000000
         Y: -100000000
       - X: -80000000
+        Y: -30000000
+      - X: -269999900
+        Y: -30000000
+      - X: -269999900
+        Y: -29999959
+      - X: -269999959
+        Y: -29999900
+      - X: -300000041
+        Y: -29999900
+      - X: -300000100
+        Y: -29999959
+      - X: -300000100
         Y: -30000000
       - X: -390000000
         Y: -30000000

@@ -38,48 +38,14 @@ public class Collision : MonoBehaviour
     }
 
 
-    void OnTriggerStay2D(Collider2D col)
-    {
-
-
-        /* if (col.gameObject.name == "Jump")
-         {
-             player.tutorial.JumpTutorial();
-
-         }
-
-         if (col.gameObject.name == "Dash")
-         {
-             player.tutorial.DashTutorial();
-         }
-
-         if (col.gameObject.name == "Slide")
-         {
-             player.tutorial.SlideTutorial();
-         }
-
-         */
-    }
-
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        player.tutorial.QuitTutorial();
-    }
-
-    void OnCollisionEnter2D(Collision2D col){
-        if(col.gameObject.layer == 10){
-            player.move.isJumping = false;
-            player.move.canDash = true;
-            player.move.isDashing = false;
-        }
 
 
 
 
 
-        // MISSIONS:
 
 
-    }
+
+
+    
 }

@@ -903,7 +903,7 @@ PrefabInstance:
     - target: {fileID: 951841326, guid: 0d0dd7b992e2bfa43984c8a7323a0e42, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 322207631689789426}
+      objectReference: {fileID: 0}
     - target: {fileID: 1338226354322240356, guid: 0d0dd7b992e2bfa43984c8a7323a0e42, type: 3}
       propertyPath: m_Name
       value: MainCamera
@@ -960,7 +960,8 @@ PrefabInstance:
       propertyPath: yOffset
       value: 2.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 951841326, guid: 0d0dd7b992e2bfa43984c8a7323a0e42, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0d0dd7b992e2bfa43984c8a7323a0e42, type: 3}
 --- !u!1 &252732093
 GameObject:
@@ -1407,7 +1408,7 @@ Transform:
   - {fileID: 2030485303}
   - {fileID: 419541988}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552497411
 GameObject:
@@ -6961,10 +6962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e3331844655f348b1532a1f2509b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1014799661}
-  hasJumped: 0
-  hasDashed: 0
-  hasSlided: 0
+  player: {fileID: 0}
   jumpText: {fileID: 849494297}
   dashText: {fileID: 2078323674}
   slideText: {fileID: 836371563}
@@ -7554,17 +7552,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975681780}
   m_CullTransparentMesh: 1
---- !u!114 &1014799661 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1687816044482132237, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
-  m_PrefabInstance: {fileID: 1374976546275972852}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b383336e9aae404d85f35310e17e9c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1082130130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7575,7 +7562,7 @@ PrefabInstance:
     - target: {fileID: -4470707689853154587, guid: 4e90054bac0bc0c4a85a209221fed902, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1014799661}
+      objectReference: {fileID: 0}
     - target: {fileID: 2500498151715054152, guid: 4e90054bac0bc0c4a85a209221fed902, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -42277,7 +42264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf95983f8c3147c48aac9e5ebd17dfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1014799661}
+  player: {fileID: 0}
   input: {fileID: 2030485305}
   lines:
   - 'Yce: Ei, Snowman!'
@@ -43326,7 +43313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1687816044482132230, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1687816044482132230, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43502,7 +43489,7 @@ PrefabInstance:
     - target: {fileID: -4470707689853154587, guid: 4e90054bac0bc0c4a85a209221fed902, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1014799661}
+      objectReference: {fileID: 0}
     - target: {fileID: 2500498151715054152, guid: 4e90054bac0bc0c4a85a209221fed902, type: 3}
       propertyPath: m_IsTrigger
       value: 0

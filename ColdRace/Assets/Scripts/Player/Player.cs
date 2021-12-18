@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    //Other scripts:
     public Movement move;
     public Collision coll;
     public AnimationController anim;
     public Tutorial tutorial;
     public Dialogue dialogue;
+
+
+    //Level Manager:
+    public bool tutorialJump;
+    public bool tutorialClimb;
+    public bool tutorialDash;
+
+
 
 
     public int cake;

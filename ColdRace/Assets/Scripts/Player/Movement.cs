@@ -18,8 +18,6 @@ public class Movement : MonoBehaviour
     public float slidingSpeed;
     public float climbSpeed;
     public int jumps = 1;
-    public float fallSpeed;
-    public float lowJumpForce;
     public float gravityScale;
 
     [Space]
@@ -89,20 +87,14 @@ public class Movement : MonoBehaviour
         //Methods:
         if(canMove){
             Walk(dir);
-            if (player.tutorial.jumpText.activeInHierarchy || player.tutorial.hasJumped)
+            Jump();
+            WallSlide(x, y);
+            Dash(x, y);
+            if (!wallJumping)
             {
-                Jump();
+                Flip(x);
             }
-            if (player.tutorial.slideText.activeInHierarchy || player.tutorial.hasSlided)
-            {
-                WallSlide(x, y);
-            }
-            if (player.tutorial.dashText.activeInHierarchy || player.tutorial.hasDashed)
-            {
-                Dash(x, y);
-            }
-
-            Flip(x);
+            
         }
         
     }
@@ -124,14 +116,6 @@ public class Movement : MonoBehaviour
         
         }
 
-        if(rb.velocity.y < 0 ){
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallSpeed - 1) * Time.deltaTime;
-        }else if(rb.velocity.y > 0 && !Input.GetButton("Jump")){
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpForce - 1) * Time.deltaTime;
-
-        }
-
-        
 
          //Creates a Circle on Player's feet that will check for collisions with the ground
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, ground);
@@ -153,7 +137,7 @@ public class Movement : MonoBehaviour
             wallClimbing = false;
             rb.gravityScale = gravityScale;
         }
-        if(isOnWall && !isGrounded && rb.velocity.x != 0 && !PauseMenu.isPaused){
+        if (isOnWall && !isGrounded && rb.velocity.x != 0 && !PauseMenu.isPaused) {
             wallSliding = true;
             slidingFX.Play();
 
@@ -165,15 +149,17 @@ public class Movement : MonoBehaviour
                 wallJumping = true;
                 Invoke("WallJumpingTime", wallJumpTime);
                 rb.velocity = new Vector2(xWall * -x, yWall);
-                if(x > 0 && !facingRight){
-                    facingRight = true;
-                    transform.Rotate(0f, -180f, 0f);
-
-
-                }else if(x < 0 && facingRight){
-                    facingRight = false;
+                if (facingRight)
+                {
                     transform.Rotate(0f, 180f, 0f);
+                    facingRight = false;
                 }
+                else
+                {
+                    transform.Rotate(0f, -180f, 0f);
+                    facingRight = true;
+                }
+
             }
 
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -slidingSpeed, float.MaxValue));
@@ -208,19 +194,12 @@ public class Movement : MonoBehaviour
                     rb.velocity = new Vector2(-dashSpeed, rb.velocity.y);
                 }
             }else{
-                if (!isJumping)
-                {
-                    rb.velocity = new Vector2(dashSpeed * x, dashJump * y);
-                }
-                else
-                {
-                    rb.velocity = new Vector2(dashSpeed * x, dashJump * y * 0.7f);
-                }
+
+                rb.velocity = new Vector2(dashSpeed * x, dashJump * y);
+
+
                 
             }
-
-            
-
             
         }
     }

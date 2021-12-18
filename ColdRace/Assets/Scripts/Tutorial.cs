@@ -5,9 +5,6 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     public Player player;
-    public bool hasJumped;
-    public bool hasDashed;
-    public bool hasSlided;
     [Space]
     public GameObject jumpText;
     public GameObject dashText;
@@ -32,7 +29,7 @@ public class Tutorial : MonoBehaviour
 
     public void JumpTutorial()
     {
-        if (!hasJumped)
+        if (!player.tutorialJump)
         {
             if(input.keyboard == 1)
             {
@@ -51,7 +48,7 @@ public class Tutorial : MonoBehaviour
             jumpText.SetActive(true);
             if (Input.GetButtonDown("Jump") && player.move.isGrounded)
             {
-                hasJumped = true;
+                player.tutorialJump = true;
                 jumpText.SetActive(false);
 
             }
@@ -62,7 +59,7 @@ public class Tutorial : MonoBehaviour
 
    public void DashTutorial()
     {
-        if (!hasDashed)
+        if (!player.tutorialDash)
         {
 
 
@@ -86,7 +83,7 @@ public class Tutorial : MonoBehaviour
             
             if (Input.GetButtonDown("Dash") && player.move.canDash)
             {
-                hasDashed = true;
+                player.tutorialDash = true;
                 dashText.SetActive(false);
                 
 
@@ -98,7 +95,7 @@ public class Tutorial : MonoBehaviour
 
    public void SlideTutorial()
     {
-        if (!hasSlided)
+        if (!player.tutorialClimb)
         {
 
             if (input.keyboard == 1)
@@ -112,12 +109,14 @@ public class Tutorial : MonoBehaviour
                 PS4_L2.SetActive(true);
                 KEYBOARD_E.SetActive(false);
             }
+
+
             slideText.SetActive(true);
 
             if (player.move.isOnWall && Input.GetButton("Climb"))
             {
                 slideText.SetActive(false);
-                hasSlided = true;
+                player.tutorialClimb = true;
             }
 
         }

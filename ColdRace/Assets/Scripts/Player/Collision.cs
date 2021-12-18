@@ -42,27 +42,27 @@ public class Collision : MonoBehaviour
     {
 
 
-        if (col.gameObject.name == "Jump")
-        {
-            player.tutorial.JumpTutorial();
+        /* if (col.gameObject.name == "Jump")
+         {
+             player.tutorial.JumpTutorial();
 
-        }
+         }
 
-        if (col.gameObject.name == "Dash")
-        {
-            player.tutorial.DashTutorial();
-        }
+         if (col.gameObject.name == "Dash")
+         {
+             player.tutorial.DashTutorial();
+         }
 
-        if (col.gameObject.name == "Slide")
-        {
-            player.tutorial.SlideTutorial();
-        }
+         if (col.gameObject.name == "Slide")
+         {
+             player.tutorial.SlideTutorial();
+         }
 
-
+         */
     }
 
 
-    private void OnTriggerExit2D(Collider2D col)
+    void OnTriggerExit2D(Collider2D col)
     {
         player.tutorial.QuitTutorial();
     }

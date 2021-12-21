@@ -17,7 +17,8 @@ public class Movement : MonoBehaviour
     public float dashJump;
     public float slidingSpeed;
     public float climbSpeed;
-    public int jumps = 1;
+    public float jumpTime;
+    private float jumpTimeCounter;
     public float gravityScale;
 
     [Space]
@@ -57,8 +58,6 @@ public class Movement : MonoBehaviour
     [Header("Bools:")]
     public bool facingRight;
     public bool canDash;
-    public bool dashUp;
-    public bool dashDiag;
     public bool canMove;
     public bool isJumping;
     public bool isDashing;
@@ -82,7 +81,7 @@ public class Movement : MonoBehaviour
         if(isGrounded){
             canDash = true;
             isJumping = false;
-            jumps = 1;
+            
         }
 
         //Methods:
@@ -108,23 +107,44 @@ public class Movement : MonoBehaviour
     // Jumping
     void Jump() {
 
-        if(Input.GetButtonDown("Jump") && isGrounded && jumps > 0 && !PauseMenu.isPaused){
-            rb.velocity = Vector2.up * jumpForce;
+        //Creates a Circle on Player's feet that will check for collisions with the ground
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, ground);
+
+        if (Input.GetButtonDown("Jump") && isGrounded && !PauseMenu.isPaused){
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false;
-            jumps--;
             isJumping = true;
             slidingFX.Play();
+            jumpTimeCounter = jumpTime;
         
         }
 
+        if (Input.GetButton("Jump") && jumpTimeCounter > 0 && isJumping && !PauseMenu.isPaused)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            isGrounded = false;
+            isJumping = true;
+            slidingFX.Play();
+            jumpTimeCounter -= Time.deltaTime;
+            
+        }
+        else
+        {
+            isJumping = false;
+        }
 
-         //Creates a Circle on Player's feet that will check for collisions with the ground
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, ground);
+        if (Input.GetButtonUp("Jump"))
+        {
+            isJumping = false;
+        }
+
+
+
 
     }
 
 
-    //Wall Slide/Jump
+    //Wall Gameplay
     void WallSlide(float x, float y){
 
         isOnWall = Physics2D.OverlapCircle(rightCheck.position, wallCheckRadius, ground);

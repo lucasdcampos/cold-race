@@ -52,6 +52,7 @@ public class Movement : MonoBehaviour
     public ParticleSystem slidingFX;
     public ParticleSystem walkFX;
     public ParticleSystem deathFX;
+    public ParticleSystem dustFX;
 
 
     [Space]
@@ -61,6 +62,7 @@ public class Movement : MonoBehaviour
     public bool canMove;
     public bool isJumping;
     public bool isDashing;
+    public bool isLanding;
 
 
     void Start()
@@ -80,9 +82,24 @@ public class Movement : MonoBehaviour
 
         if(isGrounded){
             canDash = true;
-            isJumping = false;
-            
+
+
+            if (isLanding)
+            {
+                isLanding = false;
+                isJumping = false;
+                dustFX.Play();
+                print(rb.velocity.y);
+                
+                FindObjectOfType<SoundManager>().Play("land");
+            }
         }
+        else
+        {
+            isLanding = true;
+        }
+
+
 
         //Methods:
         if(canMove){
@@ -114,6 +131,7 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false;
             isJumping = true;
+            
             slidingFX.Play();
             jumpTimeCounter = jumpTime;
         
@@ -131,6 +149,7 @@ public class Movement : MonoBehaviour
         else
         {
             isJumping = false;
+            
         }
 
         if (Input.GetButtonUp("Jump"))

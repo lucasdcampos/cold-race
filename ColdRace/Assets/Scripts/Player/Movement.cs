@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     public Player player;
 
+    [Space]
     [Header("Stats:")]
     public float speed;
     public float jumpForce;
@@ -22,29 +23,35 @@ public class Movement : MonoBehaviour
     public float gravityScale;
 
     [Space]
+    [Header("Polish:")]
+    public float hangTime = 0.1f;
+    public float hangTimeCounter;
+    public float preJumpLenght;
+    private float preJumpCounter;
+
+    [Space]
     [Header("Ground Check:")]
     public LayerMask ground;
     public Transform groundCheck;
     public float groundCheckRadius;
-    public bool isGrounded;
+    [HideInInspector] public bool isGrounded;
 
     [Space]
     [Header("Wall Check:")]
     public bool wallSliding;
     public float wallCheckRadius;
     public Transform rightCheck;
-    public bool isOnWall;
+    [HideInInspector] public bool isOnWall;
+
+    [Space]
+    [Header("Wall Stuff:")]
     public bool wallJumping;
     public bool wallClimbing;
     public float xWall;
     public float yWall;
     public float wallJumpTime;
     
-    [Space]
-    [Header("Camera:")]
-    public float shakeMagnetude;
-    public float shakeTime;
-    public Camera mainCamera;
+
 
     [Space]
     [Header("Particles:")]
@@ -56,13 +63,19 @@ public class Movement : MonoBehaviour
 
 
     [Space]
+    [Header("Camera:")]
+    public float shakeMagnetude;
+    public float shakeTime;
+    public Camera mainCamera;
+
+    [Space]
     [Header("Bools:")]
-    public bool facingRight;
-    public bool canDash;
-    public bool canMove;
-    public bool isJumping;
-    public bool isDashing;
-    public bool isLanding;
+    [HideInInspector] public bool facingRight;
+    [HideInInspector] public bool canDash;
+    [HideInInspector] public bool canMove;
+    [HideInInspector] public bool isJumping;
+    [HideInInspector] public bool isDashing;
+    [HideInInspector] public bool isLanding;
 
 
     void Start()
@@ -111,9 +124,10 @@ public class Movement : MonoBehaviour
             {
                 Flip(x);
             }
+            Polish();
             
         }
-        
+       
     }
 
     void Walk(Vector2 dir){
@@ -127,7 +141,7 @@ public class Movement : MonoBehaviour
         //Creates a Circle on Player's feet that will check for collisions with the ground
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, ground);
 
-        if (Input.GetButtonDown("Jump") && isGrounded && !PauseMenu.isPaused){
+        if (Input.GetButtonDown("Jump") && hangTime > 0 && !PauseMenu.isPaused){
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false;
             isJumping = true;
@@ -291,6 +305,21 @@ public class Movement : MonoBehaviour
 	{
 		CancelInvoke ("StartCameraShaking");
 	}
+
+
+
+
+    void Polish()
+    {
+        if (isGrounded)
+        {
+            hangTimeCounter = hangTime;
+        }
+        else
+        {
+            hangTimeCounter -= Time.deltaTime;
+        }
+    }
     
 
     

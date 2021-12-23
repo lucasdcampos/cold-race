@@ -28980,11 +28980,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1687816044482132230, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.88
+      value: -29.75
       objectReference: {fileID: 0}
     - target: {fileID: 1687816044482132230, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.83
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1687816044482132230, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29027,12 +29027,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1687816044482132231, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
+      propertyPath: hangTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687816044482132231, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: jumpTime
-      value: 0.17
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1687816044482132231, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: jumpForce
-      value: 6.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1687816044482132231, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: shakeTime
@@ -29049,6 +29053,10 @@ PrefabInstance:
     - target: {fileID: 1687816044482132231, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: facingRight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687816044482132231, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
+      propertyPath: preJumpLenght
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1687816044482132231, guid: 381be40b41eaba64db596ed7ece7c63d, type: 3}
       propertyPath: shakeMagnetude

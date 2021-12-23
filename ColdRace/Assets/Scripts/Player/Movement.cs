@@ -19,15 +19,14 @@ public class Movement : MonoBehaviour
     public float slidingSpeed;
     public float climbSpeed;
     public float jumpTime;
-    private float jumpTimeCounter;
     public float gravityScale;
 
     [Space]
     [Header("Polish:")]
     public float hangTime = 0.1f;
     public float hangTimeCounter;
-    public float preJumpLenght;
-    private float preJumpCounter;
+    public float preJumpLenght = 0.5f;
+    public float preJumpCounter;
 
     [Space]
     [Header("Ground Check:")]
@@ -83,7 +82,6 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravityScale;
     }
-    
 
     void Update()
     {
@@ -141,24 +139,13 @@ public class Movement : MonoBehaviour
         //Creates a Circle on Player's feet that will check for collisions with the ground
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, ground);
 
-        if (Input.GetButtonDown("Jump") && hangTime > 0 && !PauseMenu.isPaused){
+        if (preJumpCounter >= 0 && hangTimeCounter > 0f && !PauseMenu.isPaused){
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            isGrounded = false;
             isJumping = true;
-            
+            preJumpCounter = 0;
             slidingFX.Play();
-            jumpTimeCounter = jumpTime;
-        
-        }
 
-        if (Input.GetButton("Jump") && jumpTimeCounter > 0 && isJumping && !PauseMenu.isPaused)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            isGrounded = false;
-            isJumping = true;
-            slidingFX.Play();
-            jumpTimeCounter -= Time.deltaTime;
-            
+        
         }
         else
         {
@@ -166,9 +153,19 @@ public class Movement : MonoBehaviour
             
         }
 
-        if (Input.GetButtonUp("Jump"))
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
         {
             isJumping = false;
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpTime);
+        }
+
+
+        if (Input.GetButtonDown("Jump")){
+            preJumpCounter = preJumpLenght;
+        }
+        else
+        {
+            preJumpCounter -= Time.deltaTime;
         }
 
 

@@ -10,16 +10,24 @@ public class Movement : MonoBehaviour
     public Player player;
 
     [Space]
-    [Header("Stats:")]
+    [Header("Baisc Movement:")]
     public float speed;
     public float jumpForce;
+    public float gravityScale;
+
+    [Space]
+    [Header("Dash:")]
+
     public float dashSpeed;
     public float dashTime;
-    public float dashJump;
+    public Vector2 dashDir;
+
+    [Space]
+    [Header("Climb/Slide:")]
     public float slidingSpeed;
     public float climbSpeed;
-    public float jumpTime;
-    public float gravityScale;
+    
+    
 
     [Space]
     [Header("Polish:")]
@@ -27,6 +35,7 @@ public class Movement : MonoBehaviour
     public float hangTimeCounter;
     public float preJumpLenght = 0.5f;
     public float preJumpCounter;
+    public float jumpTime;
 
     [Space]
     [Header("Ground Check:")]
@@ -125,6 +134,8 @@ public class Movement : MonoBehaviour
             Polish();
             
         }
+
+        StartCoroutine(StopDash());
        
     }
 
@@ -232,31 +243,46 @@ public class Movement : MonoBehaviour
 
 
     // Dashing
-    void Dash(float x, float y){
+    void Dash(float x, float y)
+    {
 
-        if(Input.GetButtonDown("Dash") && canDash && !PauseMenu.isPaused){
-            
+        if (Input.GetButtonDown("Dash") && canDash && !isDashing && !PauseMenu.isPaused)
+        {
+
             dashFX.Play();
             FindObjectOfType<SoundManager>().Play("dash");
             ShakeCamera();
             canDash = false;
-            
-            
-            if(x == 0 && y == 0){
-                if(facingRight){
-                    rb.velocity = new Vector2(dashSpeed, rb.velocity.y);
-                }else{
-                    rb.velocity = new Vector2(-dashSpeed, rb.velocity.y);
+            isDashing = true;
+
+
+            if (x == 0 && y == 0)
+            {
+                if (facingRight)
+                {
+                    rb.velocity = new Vector2(dashSpeed * 2, rb.velocity.y);
                 }
-            }else{
-
-                rb.velocity = new Vector2(dashSpeed * x, dashJump * y);
-
-
-                
+                else
+                {
+                    rb.velocity = new Vector2(-dashSpeed * 2, rb.velocity.y);
+                }
             }
-            
+            else
+            {
+
+                rb.velocity = new Vector2(dashSpeed * x, dashSpeed * y);
+
+
+
+            }
+
         }
+    }
+
+    private IEnumerator StopDash()
+    {
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
     }
 
     //Flip the Character

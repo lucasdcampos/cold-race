@@ -4,37 +4,46 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-    public Movement move;
     public Player player;
 
     void Start()
     {
         
-        move = GetComponent<Movement>();
+        player.move = GetComponent<Movement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (player.move.isGrounded)
+        {
+            player.isDead = false;
+        }
     }
 
 
     void OnTriggerEnter2D(Collider2D col){
         
         if(col.gameObject.tag == "Lava"){
-            move.deathFX.Play();
+            player.move.deathFX.Play();
             FindObjectOfType<SoundManager>().Play("death");
             transform.position = player.respawnPoint;
-            move.ShakeCamera();
+            player.isDead = true;
+            player.move.ShakeCamera();
             
 
 
         }else if(col.gameObject.tag == "Checkpoint"){
             player.respawnPoint = transform.position;
+
         }
 
 
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        player.isDead = false;
     }
 
 
@@ -47,5 +56,9 @@ public class Collision : MonoBehaviour
 
 
 
-    
+
+
+
+
+
 }

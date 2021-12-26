@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+
+    #region variables
     // Components and Variables:
     [HideInInspector]
     public Rigidbody2D rb;
@@ -85,6 +87,7 @@ public class Movement : MonoBehaviour
     [HideInInspector] public bool isDashing;
     [HideInInspector] public bool isLanding;
 
+    #endregion
 
     void Start()
     {
@@ -109,8 +112,6 @@ public class Movement : MonoBehaviour
                 isLanding = false;
                 isJumping = false;
                 dustFX.Play();
-                print(rb.velocity.y);
-                
                 FindObjectOfType<SoundManager>().Play("land");
             }
         }

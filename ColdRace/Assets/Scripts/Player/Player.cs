@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public AnimationController anim;
 
 
+
+    public bool isDead;
     public Vector3 respawnPoint;
 
 
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        isDead = false;
         respawnPoint = transform.position;
     }
 

@@ -41,7 +41,6 @@ MonoBehaviour:
   - {fileID: 2962872297574999090}
   - {fileID: 6052644083245150146}
   - {fileID: 7092166414006690928}
-  - {fileID: 7554007486480834016}
 --- !u!114 &1133209364963445152
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -97,7 +96,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.35
+    value: 0.15
   smoothness:
     overrideState: 1
     value: 0.3
@@ -170,16 +169,16 @@ MonoBehaviour:
     value: -1
   tint:
     overrideState: 1
-    value: -5
+    value: 3
   colorFilter:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     overrideState: 1
-    value: -1
+    value: -0.5
   saturation:
     overrideState: 1
-    value: -3
+    value: 0
   brightness:
     overrideState: 1
     value: 0
@@ -188,7 +187,7 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 1
-    value: 10
+    value: 0
   mixerRedOutRedIn:
     overrideState: 0
     value: 200
@@ -1437,7 +1436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f6f3f7c722b4544b97e3c75840aa33, type: 3}
   m_Name: AutoExposure
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1462,32 +1461,6 @@ MonoBehaviour:
   speedDown:
     overrideState: 1
     value: 1
---- !u!114 &7554007486480834016
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
-  m_Name: ChromaticAberration
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  spectralLut:
-    overrideState: 1
-    value: {fileID: 0}
-    defaultState: 1
-  intensity:
-    overrideState: 1
-    value: 0.05
-  fastMode:
-    overrideState: 1
-    value: 0
 --- !u!114 &8374661661192183176
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1506,7 +1479,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 10
+    value: 5
   threshold:
     overrideState: 1
     value: 1

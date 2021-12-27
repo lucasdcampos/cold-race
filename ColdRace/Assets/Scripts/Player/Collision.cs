@@ -39,6 +39,13 @@ public class Collision : MonoBehaviour
         }
 
 
+        if(col.gameObject.tag == "DashReset")
+        {
+            player.move.canDash = true;
+
+        }
+
+
     }
 
     void OnTriggerExit2D(Collider2D collision)

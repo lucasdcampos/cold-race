@@ -22,8 +22,8 @@ public class Dialogue : MonoBehaviour
     [Header("ICONS")]
     public GameObject dialogueBox;
     public TextMeshProUGUI textComponent;
-    public GameObject KEYBOARD_ENTER;
-    public GameObject PS4_X;
+    //public GameObject KEYBOARD_ENTER;
+    //public GameObject PS4_X;
 
 
     public string nextScene;
@@ -110,18 +110,7 @@ public class Dialogue : MonoBehaviour
         {
             if (!onDialogue && !dialogueCompleted)
             {
-                
-                if(input.PS4_Controller == 1)
-                {
-                    PS4_X.SetActive(true);
-                    KEYBOARD_ENTER.SetActive(false);
-                }else if(input.keyboard == 1)
-                {
-                    PS4_X.SetActive(false);
-                    KEYBOARD_ENTER.SetActive(true);
-                }
-
-
+               
                 StartDialogue();
 
             }

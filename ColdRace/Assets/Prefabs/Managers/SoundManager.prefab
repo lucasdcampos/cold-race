@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6067820693299711850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6067820693299711851}
+  - component: {fileID: 6067820693299711844}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6067820693299711851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067820693299711850}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.2320576, y: 1.0561877, z: -38.37207}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6067820693299711844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067820693299711850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95315a39fee47f438b3859bad1bfd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: death
+    clip: {fileID: 8300000, guid: c3a31027c50c8424ab31c1a52a78a97c, type: 3}
+    volume: 1
+    pitch: 1.3
+    loop: 0
+    source: {fileID: 0}
+  - name: dash
+    clip: {fileID: 8300000, guid: 590d92ce9554aaf40ac2cc872eaff7ac, type: 3}
+    volume: 0.7
+    pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - name: run_snow
+    clip: {fileID: 8300000, guid: 40a041ccd7a756f4f80bd7a748070ba8, type: 3}
+    volume: 1
+    pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - name: cake
+    clip: {fileID: 8300000, guid: ece5b865b9824d244b145708e77c9514, type: 3}
+    volume: 1
+    pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - name: dialogue
+    clip: {fileID: 8300000, guid: b971bd5d152291d488b384b14526ecc0, type: 3}
+    volume: 1
+    pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - name: land
+    clip: {fileID: 8300000, guid: 9bdb4ba9d495e1744b48c64b2e4f89b6, type: 3}
+    volume: 0.038
+    pitch: 1.07
+    loop: 0
+    source: {fileID: 0}
+  - name: msc_snow1
+    clip: {fileID: 8300000, guid: 396e1756857ffa643b50f07a02d1e08d, type: 3}
+    volume: 0.038
+    pitch: 1.07
+    loop: 0
+    source: {fileID: 0}

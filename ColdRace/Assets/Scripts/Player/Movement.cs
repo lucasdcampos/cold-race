@@ -98,7 +98,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
-        float x = Input.GetAxis("Horizontal");
+        float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(x, y);
 
@@ -255,6 +255,9 @@ public class Movement : MonoBehaviour
             ShakeCamera();
             canDash = false;
             isDashing = true;
+            Debug.Log("X"+ x);
+            Debug.Log("Y" + y);
+            
 
 
             if (x == 0 && y == 0)
@@ -262,6 +265,7 @@ public class Movement : MonoBehaviour
                 if (facingRight)
                 {
                     rb.velocity = new Vector2(dashSpeed * 2, rb.velocity.y);
+
                 }
                 else
                 {

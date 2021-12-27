@@ -8,6 +8,7 @@ TagManager:
   - Checkpoint
   - Tutorial
   - Cake
+  - DashReset
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Ground
   - Post Processing
   - Cake
-  - 
+  - DashReset
   - 
   - 
   - 

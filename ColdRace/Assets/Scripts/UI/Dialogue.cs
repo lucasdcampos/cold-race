@@ -94,8 +94,9 @@ public class Dialogue : MonoBehaviour
             dialogueBox.SetActive(false);
             onDialogue = false;
             player.move.canMove = true;
+            textComponent.text = string.Empty;
 
-            if(nextScene != "null")
+            if (nextScene != "null")
             {
                 SceneManager.LoadScene(nextScene);
             }

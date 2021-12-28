@@ -86,3 +86,9 @@ MonoBehaviour:
     pitch: 1.07
     loop: 0
     source: {fileID: 0}
+  - name: dashreset
+    clip: {fileID: 8300000, guid: 590d92ce9554aaf40ac2cc872eaff7ac, type: 3}
+    volume: 0.053
+    pitch: 0.7
+    loop: 0
+    source: {fileID: 0}

@@ -996,8 +996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7650344db3fc9cc4cabeda7fcd4ade43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  details: Demo Version
-  state: Main Menu
+  details: Playing the Demo Version
+  state: 
 --- !u!4 &768939954
 Transform:
   m_ObjectHideFlags: 0

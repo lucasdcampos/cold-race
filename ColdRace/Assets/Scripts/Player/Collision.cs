@@ -45,6 +45,11 @@ public class Collision : MonoBehaviour
 
         }
 
+        if(col.gameObject.tag == "SuperJump"){
+             player.move.ShakeCamera();
+             FindObjectOfType<SoundManager>().Play("superjump");
+        }
+
 
     }
 

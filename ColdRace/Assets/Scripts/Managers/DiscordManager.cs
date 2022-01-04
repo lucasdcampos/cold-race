@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Discord;
 
-public class DiscordController : MonoBehaviour
+public class DiscordManager : MonoBehaviour
 {
 
     public Discord.Discord discord;
     public string details;
     public string state;
+    public long id;
+
     // Start is called before the first frame update
     void Start()
     {
+        id = 924839115713814578;
 
-
-        discord = new Discord.Discord(924839115713814578, (System.UInt64)Discord.CreateFlags.Default);
+        discord = new Discord.Discord(id, (System.UInt64)Discord.CreateFlags.Default);
         var activityManager = discord.GetActivityManager();
         var activity = new Discord.Activity
         {
@@ -38,7 +40,7 @@ public class DiscordController : MonoBehaviour
             if (res == Discord.Result.Ok)
                 Debug.Log("Discord Status Set");
             else
-                Debug.LogError("Discord fail");
+                Debug.LogError("Discord Status failed");
         });
 
     }

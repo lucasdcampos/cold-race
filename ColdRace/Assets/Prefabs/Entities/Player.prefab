@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1875250841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1875250842}
+  - component: {fileID: 1875250843}
+  m_Layer: 0
+  m_Name: Trigger
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1875250842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875250841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 280452135275062009}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &1875250843
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875250841}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.028914452, y: 0}
+  m_Size: {x: 0.6734867, y: 1}
+  m_Direction: 0
 --- !u!1 &280452134552951802
 GameObject:
   m_ObjectHideFlags: 0
@@ -4863,6 +4910,7 @@ Transform:
   m_Children:
   - {fileID: 280452134552951803}
   - {fileID: 280452136098107625}
+  - {fileID: 1875250842}
   m_Father: {fileID: 548572298919529588}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24293,6 +24341,7 @@ MonoBehaviour:
   move: {fileID: 548572298919529589}
   coll: {fileID: 548572298919529598}
   anim: {fileID: 280452134930591937}
+  isDead: 0
   respawnPoint: {x: 0, y: 0, z: 0}
   cake: 0
 --- !u!114 &548572298919529589
@@ -24317,7 +24366,7 @@ MonoBehaviour:
   dashDir: {x: 0, y: 0}
   slidingSpeed: 4
   climbSpeed: 3
-  hangTime: 0.15
+  hangTime: 0.17
   hangTimeCounter: 0
   preJumpLenght: 0.15
   preJumpCounter: 0
@@ -24346,11 +24395,14 @@ MonoBehaviour:
   shakeTime: 0.36
   mainCamera: {fileID: 0}
   facingRight: 1
-  canDash: 0
+  canDash: 1
   canMove: 1
   isJumping: 0
   isDashing: 0
   isLanding: 0
+  x: 0
+  y: 0
+  dir: {x: 0, y: 0}
 --- !u!114 &280452134930591937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24363,6 +24415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75c739da24272840ab388882a7d6db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camAnim: {fileID: 0}
   anim: {fileID: 548572298919529590}
   player: {fileID: 548572298919529599}
 --- !u!114 &548572298919529598
@@ -24377,7 +24430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f217c38109d3c32409def4e58deed6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {fileID: 548572298919529589}
   player: {fileID: 548572298919529599}
 --- !u!70 &280452136196614629
 CapsuleCollider2D:

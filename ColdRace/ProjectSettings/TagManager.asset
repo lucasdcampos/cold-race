@@ -9,6 +9,7 @@ TagManager:
   - Tutorial
   - Cake
   - DashReset
+  - SuperJump
   layers:
   - Default
   - TransparentFX

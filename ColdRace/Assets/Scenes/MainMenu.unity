@@ -998,6 +998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: Playing the Demo Version
   state: 
+  id: 0
 --- !u!4 &768939954
 Transform:
   m_ObjectHideFlags: 0

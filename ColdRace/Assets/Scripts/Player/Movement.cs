@@ -87,6 +87,10 @@ public class Movement : MonoBehaviour
     [HideInInspector] public bool isDashing;
     [HideInInspector] public bool isLanding;
 
+    public float x;
+    public float y;
+    public Vector2 dir;
+
     #endregion
 
     void Start()
@@ -98,9 +102,9 @@ public class Movement : MonoBehaviour
     void Update()
     {
 
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-        Vector2 dir = new Vector2(x, y);
+        x = Input.GetAxisRaw("Horizontal");
+        y = Input.GetAxisRaw("Vertical");
+        dir = new Vector2(x, y);
 
 
         if(isGrounded){
@@ -123,8 +127,10 @@ public class Movement : MonoBehaviour
 
 
         //Methods:
-        if(canMove){
-            Walk(dir);
+
+        if (canMove)
+        {
+            Walk();
             Jump();
             WallSlide(x, y);
             Dash(x, y);
@@ -133,17 +139,19 @@ public class Movement : MonoBehaviour
                 Flip(x);
             }
             Polish();
-            
-        }
 
+        }
         StartCoroutine(StopDash());
        
     }
 
-    void Walk(Vector2 dir){
-        rb.velocity = Vector2.Lerp(rb.velocity, (new Vector2(dir.x * speed, rb.velocity.y)), 10 * Time.deltaTime);
-        
-    }   
+
+
+
+    void Walk()
+    {
+        rb.velocity = Vector2.Lerp(rb.velocity, (new Vector2(x * speed, rb.velocity.y)), 10 * Time.deltaTime);
+    }
 
     // Jumping
     void Jump() {

@@ -3,9 +3,25 @@ using System.Collections;
 
 public class InputControl : MonoBehaviour
 {
-    public int Xbox_One_Controller = 0;
-    public int PS4_Controller = 0;
-    public int keyboard = 0;
+
+    //Devices
+    public bool xbox;
+    public bool dualshock;
+    public bool keyboard;
+
+    //Inputs
+    public bool jumpDown;
+    public bool jumpUp;
+    public bool jump;
+
+
+    public bool dashDown;
+    public bool dashUp;
+    public bool dash;
+
+    public bool climbDown;
+    public bool climbUp;
+    public bool climb;
 
     public void Update()
     {
@@ -14,38 +30,57 @@ public class InputControl : MonoBehaviour
         {
             if (names[x].Length == 19)
             {
-                PS4_Controller = 1;
-                Xbox_One_Controller = 0;
-                keyboard = 0;
+                dualshock = true;
             }
             else if (names[x].Length == 33)
             {
-                //set a controller bool to true
-                PS4_Controller = 0;
-                Xbox_One_Controller = 1;
-                keyboard = 0;
+                xbox = true;
 
             }
             else
             {
-                keyboard = 1;
-                PS4_Controller = 0;
-                Xbox_One_Controller = 0;
+                keyboard = true;
+
             }
         }
 
 
-        if (Xbox_One_Controller == 1)
+        if (xbox)
         {
-            //do something
+            keyboard = false;
+            dualshock = false;
         }
-        else if (PS4_Controller == 1)
+        else if (dualshock)
         {
-            //do something
+            xbox = false;
+            keyboard = false;
         }
-        else
+        else if (keyboard)
         {
-            
+            xbox = false;
+            keyboard = false;
         }
     }
+
+
+
+
+
+    public void Inputs()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpDown = true;
+        }
+    }
+
+
+
+
 }
+
+
+
+
+
+

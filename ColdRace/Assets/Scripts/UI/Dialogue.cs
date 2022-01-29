@@ -17,11 +17,13 @@ public class Dialogue : MonoBehaviour
     private int index;
     public bool onDialogue;
     public bool dialogueCompleted;
+    
 
     [Space]
     [Header("ICONS")]
     public GameObject dialogueBox;
     public TextMeshProUGUI textComponent;
+    public Sprite sprite;
     //public GameObject KEYBOARD_ENTER;
     //public GameObject PS4_X;
 

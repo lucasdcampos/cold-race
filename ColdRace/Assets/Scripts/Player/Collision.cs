@@ -42,12 +42,12 @@ public class Collision : MonoBehaviour
         if(col.gameObject.tag == "DashReset")
         {
             player.move.canDash = true;
-
+            FindObjectOfType<SoundManager>().Play("dash_reset");
         }
 
         if(col.gameObject.tag == "SuperJump"){
-             player.move.ShakeCamera();
-             FindObjectOfType<SoundManager>().Play("superjump");
+            player.move.ShakeCamera();
+            FindObjectOfType<SoundManager>().Play("superjump");
         }
 
 

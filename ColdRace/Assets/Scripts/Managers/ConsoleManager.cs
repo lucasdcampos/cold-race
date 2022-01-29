@@ -29,9 +29,9 @@ public class ConsoleManager : MonoBehaviour
         }
 
         //Creating Console Box
-        GUI.Box(new Rect(0, y, Screen.width, boxHeigth), ">");
+        GUI.Box(new Rect(0, Screen.height - boxHeigth, Screen.width, boxHeigth), "");
         GUI.backgroundColor = new Color(0,0,0,0);
-        input = GUI.TextField(new Rect(40f, y + 10f, Screen.width - 20f, boxHeigth), input);
+        input = GUI.TextField(new Rect(40f, Screen.height - boxHeigth + 10f, Screen.width - 20f, boxHeigth), input);
 
         //Stylizing Console Box
 
@@ -39,7 +39,7 @@ public class ConsoleManager : MonoBehaviour
         GUI.skin.label.fontSize = fontSize;
         GUI.contentColor = new Color(0, 254, 0, 100);
 
-        GUI.Label(new Rect(10, y + 10f, Screen.width, boxHeigth), ">");
+        GUI.Label(new Rect(10, Screen.height - boxHeigth + 10, Screen.width, boxHeigth), ">");
         
         
 
